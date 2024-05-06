@@ -13,3 +13,10 @@
   color: #fff;
   font-weight: 600;
 }
+
+@media only screen and (min-width: 768px) {
+  .common__section {
+    padding: 70px 0px;
+    font-size: 1.4rem;
+  }
+}
