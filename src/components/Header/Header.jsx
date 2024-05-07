@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { Container, Row } from 'reactstrap'
 import './header.css'
 import logo from '../../assets/images/eco-logo.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import user_icon from '../../assets/images/user-icon.png'
 import { motion } from 'framer-motion'
 import { useSelector } from 'react-redux'
@@ -25,7 +25,7 @@ const nav__link = [
 const Header = () => {
     const headerRef = useRef(null)
     const totalQuantity = useSelector(state => state.cart.totalQuantity)
-
+    const navigate = useNavigate()
     const menuRef = useRef(null)
 
     const stickyHeaderFunc = () => {
@@ -47,6 +47,10 @@ const Header = () => {
         return menuRef.current.classList.toggle('active__menu')
     }
 
+    const navigateToCart = () => {
+        navigate('/cart')
+    }
+
     return (
         <header className="header" ref={headerRef}>
             <Container>
@@ -55,7 +59,7 @@ const Header = () => {
                         <div className="logo">
                             <img src={logo} alt="logo" />
                             <div>
-                                <h1>Multimart</h1>
+                                <h1>LuyenKieu</h1>
                             </div>
                         </div>
                         <div className="navigation" ref={menuRef} onClick={menuToggle}>
@@ -78,7 +82,7 @@ const Header = () => {
                                 <i class="ri-heart-line"></i>
                                 <span className='badge'>2</span>
                             </span>
-                            <span className='cart__icon'>
+                            <span className='cart__icon' onClick={navigateToCart}>
                                 <i class="ri-shopping-bag-line"></i>
                                 <span className='badge'>{totalQuantity}</span>
                             </span>
