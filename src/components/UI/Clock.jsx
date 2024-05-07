@@ -10,7 +10,7 @@ const Clock = () => {
 
     let interval;
     const countDown = () => {
-        const destination = new Date('March 14, 2024').getTime()
+        const destination = new Date('May 30, 2024').getTime()
         interval = setInterval(() => {
             const now = new Date().getTime()
             const different = destination - now
@@ -62,7 +62,7 @@ const Clock = () => {
         <div className="clock__data d-flex align-items-center gap-3">
             <div className="text-center">
                 <h1 className="text-white fs-3 mb-2">{seconds}</h1>
-                <h5 className="text-white fs-6">Minutes</h5>
+                <h5 className="text-white fs-6">Seconds</h5>
             </div>
         </div>
     </div>

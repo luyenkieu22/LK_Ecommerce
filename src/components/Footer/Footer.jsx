@@ -11,7 +11,7 @@ const Footer = () => {
                 <Col lg='4' md='3' className='mb-4'>
                     <div className="logo">
                         <div>
-                            <h1 className='text-white'>Multimart</h1>
+                            <h1 className='text-white'>LuyenKieu</h1>
                         </div>
                     </div>
                     <p className="footer__text mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat provident nemo rem. Dolores vel nesciunt inventore voluptates ut autem quidem?</p>
