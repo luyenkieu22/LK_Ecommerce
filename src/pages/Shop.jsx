@@ -13,6 +13,11 @@ const Shop = () => {
   const handleFilter = e => {
     const filterValue = e.target.value;
 
+    if (filterValue === 'allProducts') {
+      const filtersProducts = products.filter((item) => item.category)
+      setProductsData(filtersProducts)
+    }
+
     if (filterValue === 'sofa') {
       const filtersProducts = products.filter((item) => item.category === "sofa")
       setProductsData(filtersProducts)
@@ -54,7 +59,7 @@ const Shop = () => {
             <Col lg='3' md='6'>
               <div className="filter__widget">
                 <select onChange={handleFilter}>
-                  <option>Filter By Category</option>
+                  <option value="allProducts">Filter By Category</option>
                   <option value="sofa">Sofa</option>
                   <option value="mobile">Mobile</option>
                   <option value="chair">Chair</option>
