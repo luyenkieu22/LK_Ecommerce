@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Container, Row } from "reactstrap";
 import "./header.css";
 import logo from "../../assets/images/eco-logo.png";
@@ -123,6 +123,7 @@ const Header = () => {
                                         <div className="d-flex align-items-center justify-content-space-center flex-column">
                                             <Link to="/signup">Signup</Link>
                                             <Link to="/login">Login</Link>
+                                            <Link to="/dashboard">Dashboard</Link>
                                         </div>
                                     )}
                                 </div>
