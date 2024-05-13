@@ -3,12 +3,10 @@ import Helmet from '../components/Helmet/Helmet'
 import { Col, Container, Form, FormGroup, Row } from 'reactstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from '../firebase.config'
+import { auth, db } from '../firebase.config'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { setDoc, doc } from 'firebase/firestore';
-import { db } from '../firebase.config';
 import { storage } from '../firebase.config';
-
 import '../styles/login.css'
 import { toast } from 'react-toastify';
 
@@ -31,12 +29,9 @@ const Signup = () => {
                 email,
                 password
             );
-
             const user = userCredential.user;
-
             const storageRef = ref(storage, `images/${Date.now() + username}`)
             const uploadTask = uploadBytesResumable(storageRef, file);
-
 
             uploadTask.on((error) => {
                 toast.error(error.message)
@@ -50,7 +45,7 @@ const Signup = () => {
                     });
 
                     // store user data in firestore database
-                    await setDoc(doc, (db, 'users', user.uid), {
+                    await setDoc(doc(db, 'users', user.uid), {
                         uid: user.uid,
                         displayName: username,
                         email,

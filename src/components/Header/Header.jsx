@@ -56,7 +56,7 @@ const Header = () => {
 
     useEffect(() => {
         stickyHeaderFunc();
-        return () => window.addEventListener("scroll", stickyHeaderFunc);
+        return () => window.removeEventListener("scroll", stickyHeaderFunc);
     });
 
     const menuToggle = () => {
@@ -118,7 +118,10 @@ const Header = () => {
                                     ref={profileActionsRef}
                                     onClick={toggleProfileActions}>
                                     {currentUser ? (
-                                        <span onClick={handleLogout}>Logout</span>
+                                        <div className="d-flex align-items-center justify-content-space-center flex-column">
+                                            <span onClick={handleLogout}>Logout</span>
+                                            <Link to="/dashboard">Dashboard</Link>
+                                        </div>
                                     ) : (
                                         <div className="d-flex align-items-center justify-content-space-center flex-column">
                                             <Link to="/signup">Signup</Link>
