@@ -66,3 +66,7 @@
 .active__admin-menu {
   background: whitesmoke;
 }
+
+.link__to-home:hover {
+  color: #fff;
+}
