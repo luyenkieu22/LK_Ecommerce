@@ -7,10 +7,9 @@ const Clock = () => {
     const [hours, setHours] = useState()
     const [minutes, setMinutes] = useState()
     const [seconds, setSeconds] = useState()
-
     let interval;
     const countDown = () => {
-        const destination = new Date('November 09, 2024').getTime()
+        const destination = new Date('February 20, 2025').getTime()
         interval = setInterval(() => {
             const now = new Date().getTime()
             const different = destination - now
@@ -32,6 +31,9 @@ const Clock = () => {
         })
     }
     useEffect(() => {
+        if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+            return;
+        }
         countDown()
     })
 
